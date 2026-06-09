@@ -1,0 +1,48 @@
+openapi: 3.0.3
+info:
+  title: API för att hämta information om kafka topic associerat med erbjudande
+  version: 1.0.0
+  description: API för att hämta information om kafka topic associerat med erbjudande
+
+tags:
+  - name: ErbjudandeTopic
+    description: Operationer för att hämta kafka topic associerat med erbjudande
+
+paths:
+  /topic/{erbjudandeId}:
+    get:
+      tags: [ErbjudandeTopic]
+      summary: Hämta topic för erbjudande
+      description: Hämta topic för erbjudande
+      operationId: getTopic
+      parameters:
+        - name: erbjudandeId
+          in: path
+          required: true
+          schema:
+            type: string
+            minLength: 1
+      responses:
+        '200':
+           description: Förfrågan genomförd OK
+           content:
+             application/json:
+               schema:
+                 $ref: '#/components/schemas/TopicResponse'
+        '404':
+           description: Topic för erbjudande id hittades inte
+        '500':
+           description: Internt serverfel
+
+components:
+  schemas:
+    TopicResponse:
+      type: object
+      title: TopicResponse
+      properties:
+        topic:
+          type: string
+          description: Kafka topic associerat med erbjudande
+      required:
+        - topic
+
