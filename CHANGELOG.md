@@ -1,3 +1,9 @@
+## 0.0.3 (2026-10-27)
+
+### Bug Fixes
+
+-  Downgrade gradle to 9.7.1 ([373cb](https://github.com/Forsakringskassan/rimfrost-service-erbjudande-topic-openapi/commit/373cb9b20fc6bb3) Lars Persson)  
+
 ## 0.0.1 (2026-06-09)
 
 ### Bug Fixes
